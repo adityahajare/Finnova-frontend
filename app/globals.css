@@ -1,0 +1,68 @@
+@import "tailwindcss";
+
+/* Root colors for light/dark theme */
+:root {
+  --background-light: #ffffff;
+  --foreground-light: #171717;
+
+  --background-dark: #0b0c17;
+  --foreground-dark: #ededed;
+
+  --neon-goals: #00ffff;    /* Cyan for Goals */
+  --neon-spending: #a855f7; /* Purple for Spending */
+  --neon-reports: #facc15;  /* Amber/Yellow for Reports */
+}
+
+/* Global theme & font */
+body {
+  background: var(--background-dark);
+  color: var(--foreground-dark);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Glass panel */
+.glass {
+  background: rgba(255,255,255,0.05);
+  backdrop-filter: blur(15px);
+  border-radius: 20px;
+  padding: 20px;
+  border: 1px solid rgba(255,255,255,0.1);
+}
+
+/* Glass card with hover + floating animation */
+.glass-card {
+  @apply bg-white/5 backdrop-blur-xl rounded-2xl border border-white/10 p-6 transform transition-all duration-500;
+}
+.glass-card:hover {
+  @apply -translate-y-4 scale-105;
+}
+
+/* Neon shadows */
+.shadow-goals { box-shadow: 0 0 20px var(--neon-goals); }
+.shadow-spending { box-shadow: 0 0 20px var(--neon-spending); }
+.shadow-reports { box-shadow: 0 0 20px var(--neon-reports); }
+
+/* Floating animation */
+.floating {
+  animation: float 4s ease-in-out infinite;
+}
+@keyframes float {
+  0%,100% { transform: translateY(0px); }
+  50% { transform: translateY(-6px); }
+}
+
+/* Primary buttons */
+.btn-primary {
+  @apply font-semibold py-2 rounded-xl w-full transition-all;
+}
+.btn-goals { background: var(--neon-goals); color: black; }
+.btn-spending { background: var(--neon-spending); color: black; }
+.btn-reports { background: var(--neon-reports); color: black; }
+
+/* Toggle switch accent */
+.toggle-goals { accent: var(--neon-goals); }
+.toggle-spending { accent: var(--neon-spending); }
+.toggle-reports { accent: var(--neon-reports); }
+
+/* Circular progress rings size */
+.circular-ring { width: 96px; height: 96px; margin: 0 auto 8px; }
